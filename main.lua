@@ -1,6 +1,9 @@
 require("init")
 
 function love.load()
+
+    world=bump.newWorld(24)
+
     font = require("assets/font/skull")
     lg.setFont(font)
     shove.createLayer("game")
@@ -40,6 +43,5 @@ function love.draw()
         lg.setColor(1,1,1,1)
         lg.translate(0,0)
         lg.pop()
-        
     endDraw()
 end

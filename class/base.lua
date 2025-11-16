@@ -7,6 +7,7 @@ function base:new(x,y,w,h)
     self.h=h or 12
     self.vx=0
     self.vy=0
+    world:add(self,self.x,self.y,self.w,self.h)
 end
 
 function base:update(dt)

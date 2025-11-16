@@ -27,3 +27,4 @@ lg.setLineStyle("rough")
 
 object=require("lib/classic")
 sti=require("lib/sti")
+bump=require("lib/bump")

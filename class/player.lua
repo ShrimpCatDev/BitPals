@@ -16,7 +16,8 @@ function pl:update(dt)
     self.vx=x*self.spd*dt
     self.vy=y*self.spd*dt
 
-    self.x,self.y=self.x+self.vx,self.y+self.vy
+    local ax,ay,col,len=world:move(self,self.x+self.vx,self.y+self.vy)
+    self.x,self.y=ax,ay
 end
 
 function pl:draw()
