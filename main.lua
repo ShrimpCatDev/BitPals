@@ -16,31 +16,28 @@ function love.load()
 
     local Base = require("class/player")
     b = Base(10,10)
+
+    cam={x=0,y=0}
 end
 
 function love.update(dt)
     input:update()
     b:update(dt)
     map:update(dt)
+    cam.x,cam.y=b.x+b.w/2-conf.gW/2,b.y+b.h/2-conf.gH/2
 end 
 
 function love.draw()
     beginDraw()
-        map:draw()
+        lg.push()
+        local cx,cy=math.floor(-cam.x),math.floor(-cam.y)
+        lg.translate(cx,cy)
+        map:draw(cx,cy)
         b:draw()
-        love.graphics.setBlendMode("multiply", "premultiplied")
-        lg.setColor(0.8,0,0,1)
-        lg.rectangle("fill",80,80,32,32)
-        lg.setColor(0.023,0.353,0.71,1)
-        lg.rectangle("fill",80+32,80,32,32)
-        lg.setColor(0,1,0,1)
-        lg.rectangle("fill",80,80+32,32,32)
-
-        love.graphics.setBlendMode("alpha")
-        lg.setColor(0,0,0,0.7)
-        lg.rectangle("fill",80+32,80+32,32,32)
 
         lg.setColor(1,1,1,1)
+        lg.translate(0,0)
+        lg.pop()
         
     endDraw()
 end
