@@ -40,7 +40,116 @@ return {
       properties = {},
       wangsets = {},
       tilecount = 1024,
-      tiles = {}
+      tiles = {
+        {
+          id = 99,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 100,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 101,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 131,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 132,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 133,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 163,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 164,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 165,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 195,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 196,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 197,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 227,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 228,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 229,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 259,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 260,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 261,
+          properties = {
+            ["collidable"] = true
+          }
+        }
+      }
     }
   },
   layers = {

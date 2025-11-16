@@ -15,7 +15,8 @@ function love.load()
 
     shove.addEffect("game",lutEffect)
 
-    map=sti("assets/tilemap/test.lua")
+    map=sti("assets/tilemap/test.lua",{"bump"})
+    map:bump_init(world)
 
     local Base = require("class/player")
     b = Base(10,10)
