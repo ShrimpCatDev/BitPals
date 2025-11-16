@@ -1,6 +1,7 @@
 require("init")
 
 function love.load()
+    deep=deeplib:new()
 
     world=bump.newWorld(24)
 
@@ -38,8 +39,22 @@ function love.draw()
         lg.push()
         local cx,cy=math.floor(-cam.x),math.floor(-cam.y)
         lg.translate(cx,cy)
-        map:draw(cx,cy)
+
+        for _, layer in ipairs(map.layers) do
+            if layer.visible and layer.opacity > 0 then
+                if layer.properties.overPlayer then
+                    deep:queue(math.floor(b.y)+1,function()
+                        map:drawLayer(layer)
+                    end)
+                else
+                    map:drawLayer(layer)
+                end
+            end
+        end
+
         b:draw()
+
+        deep:draw()     
 
         lg.setColor(1,1,1,1)
         lg.translate(0,0)

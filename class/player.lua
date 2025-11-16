@@ -21,11 +21,13 @@ function pl:update(dt)
 end
 
 function pl:draw()
-    local x,y=math.floor(self.x),math.floor(self.y)
-    lg.setColor(0,0,0,0.4)
-    lg.rectangle("fill",x,y,self.w,self.h-2)
-    lg.setColor(1,1,1,1)
-    lg.draw(self.img,x,y,0,1,1,0,self.img:getHeight()/2)
+    deep:queue(math.floor(self.y),function()
+        local x,y=math.floor(self.x),math.floor(self.y)
+        lg.setColor(0,0,0,0.4)
+        lg.rectangle("fill",x,y,self.w,self.h-2)
+        lg.setColor(1,1,1,1)
+        lg.draw(self.img,x,y,0,1,1,0,self.img:getHeight()/2)
+    end)
 end
 
 return pl
