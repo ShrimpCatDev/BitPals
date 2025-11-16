@@ -5,6 +5,8 @@ function love.load()
     lg.setFont(font)
     shove.createLayer("game")
 
+    map=sti("assets/tilemap/test.lua")
+
     local Base = require("class/player")
     b = Base(10,10)
 end
@@ -12,10 +14,12 @@ end
 function love.update(dt)
     input:update()
     b:update(dt)
+    map:update(dt)
 end 
 
 function love.draw()
     beginDraw()
-        b:draw()
+        map:draw()
+        b:draw() 
     endDraw()
 end
