@@ -4,14 +4,18 @@ function love.load()
     font = require("assets/font/skull")
     lg.setFont(font)
     shove.createLayer("game")
+
+    local Base = require("class/base")
+    b = Base(10,10)
 end
 
 function love.update(dt)
     input:update()
+    b:update(dt)
 end 
 
 function love.draw()
     beginDraw()
-        lg.print("hello world")
+        b:draw()
     endDraw()
 end

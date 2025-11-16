@@ -24,3 +24,5 @@ shove.setResolution(conf.gW,conf.gH,{fitMethod=conf.fit,scalingFilter=conf.textu
 shove.setWindowMode(conf.wW,conf.wH,{resizable=true,vsync=conf.vsync})
 
 lg.setLineStyle("rough")
+
+object=require("lib/classic")

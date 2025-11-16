@@ -4,8 +4,8 @@ Comment=REBOOTNESS
 Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 org.love2d.love2d /home/deck/Documents/GitHub/BitPals/
 Icon=org.love2d.love2d
 MimeType=application/x-love-game;
-Name[en_US]=reboot
-Name=REBOOT
+Name[en_US]=bitpals
+Name=bitpals
 NoDisplay=false
 Terminal=false
 Type=Application
