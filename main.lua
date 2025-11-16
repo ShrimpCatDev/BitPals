@@ -25,6 +25,8 @@ function love.update(dt)
     b:update(dt)
     map:update(dt)
     cam.x,cam.y=b.x+b.w/2-conf.gW/2,b.y+b.h/2-conf.gH/2
+    cam.x=clamp(cam.x,0,(map.width*map.tilewidth)-conf.gW)
+    cam.y=clamp(cam.y,0,(map.height*map.tileheight)-conf.gH)
 end 
 
 function love.draw()
