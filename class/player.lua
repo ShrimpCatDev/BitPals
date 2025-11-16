@@ -20,7 +20,10 @@ function pl:update(dt)
 end
 
 function pl:draw()
-    lg.draw(self.img,self.x,self.y)
+    lg.setColor(0,0,0,0.4)
+    lg.rectangle("fill",self.x,self.y,self.w,self.h-2)
+    lg.setColor(1,1,1,1)
+    lg.draw(self.img,self.x,self.y,0,1,1,0,self.img:getHeight()/2)
 end
 
 return pl
