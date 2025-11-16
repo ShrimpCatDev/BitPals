@@ -5,7 +5,7 @@ function love.load()
     lg.setFont(font)
     shove.createLayer("game")
 
-    local Base = require("class/base")
+    local Base = require("class/player")
     b = Base(10,10)
 end
 
