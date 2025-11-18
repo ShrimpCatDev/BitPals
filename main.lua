@@ -5,7 +5,8 @@ function love.load()
 
     world=bump.newWorld(24)
 
-    font = require("assets/font/skull")
+    --font = require("assets/font/capy")
+    font=lg.newFont("assets/font/monogram-extended.ttf",16)
     lg.setFont(font)
     shove.createLayer("game")
 
@@ -63,5 +64,6 @@ function love.draw()
         lg.setColor(1,1,1,1)
         lg.translate(0,0)
         lg.pop()
+        lg.print("Hello world!",0,-4)
     endDraw()
 end
