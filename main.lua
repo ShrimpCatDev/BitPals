@@ -23,6 +23,8 @@ function love.load()
     b = Base(10,10)
 
     cam={x=0,y=0}
+
+    shader={stripe=lg.newShader("shaders/stripe.glsl")}
 end
 
 function love.update(dt)
@@ -32,7 +34,9 @@ function love.update(dt)
     cam.x,cam.y=b.x+b.w/2-conf.gW/2,b.y+b.h/2-conf.gH/2
     cam.x=clamp(cam.x,0,(map.width*map.tilewidth)-conf.gW)
     cam.y=clamp(cam.y,0,(map.height*map.tileheight)-conf.gH)
+    shader.stripe:send("time",love.timer.getTime())
 end 
+
 
 function love.draw()
     beginDraw()
