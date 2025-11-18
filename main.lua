@@ -23,7 +23,7 @@ function love.load()
     local Base = require("class/player")
     b = Base(10,10)
 
-    cam={x=0,y=0}
+    cam={x=0,y=0,gx=0,gy=0}
 
     shader={stripe=lg.newShader("shaders/stripe.glsl")}
 
@@ -32,26 +32,43 @@ function love.load()
     talkies.rounding=2
     talkies.titleBackgroundColor=color("#065ab5")
     talkies.messageBackgroundColor=color("#1d2b53")
+    map.layers["collision"].visible=false
 end
 
 function love.update(dt)
     talkies.update(dt)
     input:update()
+
     if not talkies.isOpen() then
         b:update(dt)
+        for k,v in ipairs(map.layers["collision"].objects) do
+            if collision(v.x,v.y,b.x,b.y,v.width,v.height,b.w,b.h) then
+                if v.properties.kind=="msg" and input:pressed("action") then
+                    local title=v.properties.title or ""
+                    talkies.say(title,v.properties.msg)
+                end
+            end
+        end
+    else
+        if input:pressed("action") then
+            talkies.onAction()
+        elseif input:pressed("up") then
+            talkies.prevOption()
+        elseif input:pressed("down") then
+            talkies.nextOption()
+        end
     end
+
     map:update(dt)
-    cam.x,cam.y=b.x+b.w/2-conf.gW/2,b.y+b.h/2-conf.gH/2
+    cam.gx,cam.gy=math.floor(b.x+b.w/2-conf.gW/2),math.floor(b.y+b.h/2-conf.gH/2)
+    cam.gx=clamp(cam.gx,0,(map.width*map.tilewidth)-conf.gW)
+    cam.gy=clamp(cam.gy,0,(map.height*map.tileheight)-conf.gH)
+    local s=5
+    cam.x,cam.y=lerpDt(cam.x,cam.gx,s,dt),lerpDt(cam.y,cam.gy,s,dt)
     cam.x=clamp(cam.x,0,(map.width*map.tilewidth)-conf.gW)
     cam.y=clamp(cam.y,0,(map.height*map.tileheight)-conf.gH)
 
-    if input:pressed("action") then
-        talkies.onAction()
-    elseif input:pressed("up") then
-        talkies.prevOption()
-    elseif input:pressed("down") then
-        talkies.nextOption()
-    end
+    
 end 
 
 
