@@ -4,6 +4,7 @@ local pl=base:extend()
 
 function pl:new(x,y)
     pl.super.new(self,x,y)
+    
     self.img=lg.newImage("assets/player/anim.png")
 
     local g=anim8.newGrid(12,16,self.img:getWidth(),self.img:getHeight())
@@ -28,6 +29,13 @@ function pl:new(x,y)
     self.dir=2
 
     self.spd=90
+
+    for k,v in ipairs(map.layers["collision"].objects) do
+        if v.properties.playerSpawn then
+            self.x,self.y=v.x-self.w/2,v.y-self.h/2
+        end
+    end
+    local ax,ay,col,len=world:update(self,self.x,self.y)
 end
 
 function pl:update(dt)

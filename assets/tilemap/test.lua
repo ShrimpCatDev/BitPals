@@ -1150,8 +1150,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["kind"] = "msg",
-            ["msg"] = "Ah yes the door is made of door (you can't go in there yet)"
+            ["kind"] = "room",
+            ["room"] = "testRoom"
           }
         },
         {

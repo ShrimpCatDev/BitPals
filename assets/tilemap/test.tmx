@@ -774,8 +774,8 @@
  <objectgroup id="16" name="collision">
   <object id="1" x="232.188" y="168" width="3.625" height="3.4375">
    <properties>
-    <property name="kind" value="msg"/>
-    <property name="msg" value="Ah yes the door is made of door (you can't go in there yet)"/>
+    <property name="kind" value="room"/>
+    <property name="room" value="testRoom"/>
    </properties>
   </object>
   <object id="3" x="299.938" y="143.929" width="14.9293" height="12.0462">
