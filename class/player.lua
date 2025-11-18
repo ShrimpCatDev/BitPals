@@ -68,9 +68,9 @@ function pl:draw()
     deep:queue(math.floor(self.y),function()
         local x,y=math.floor(self.x),math.floor(self.y)
         lg.setColor(0,0,0,0.4)
-        lg.rectangle("fill",x,y,self.w,self.h-2)
+        lg.rectangle("fill",x,y,self.w,self.h)
         lg.setColor(1,1,1,1)
-        self.anim.current:draw(self.img,x,y-8,0,1,1,0,0)
+        self.anim.current:draw(self.img,x-1,y-8,0,1,1,0,0)
     end)
 end
 

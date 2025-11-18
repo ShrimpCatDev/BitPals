@@ -26,16 +26,32 @@ function love.load()
     cam={x=0,y=0}
 
     shader={stripe=lg.newShader("shaders/stripe.glsl")}
+
+    talkies.font=font
+    talkies.padding=4
+    talkies.rounding=2
+    talkies.titleBackgroundColor=color("#065ab5")
+    talkies.messageBackgroundColor=color("#1d2b53")
 end
 
 function love.update(dt)
+    talkies.update(dt)
     input:update()
-    b:update(dt)
+    if not talkies.isOpen() then
+        b:update(dt)
+    end
     map:update(dt)
     cam.x,cam.y=b.x+b.w/2-conf.gW/2,b.y+b.h/2-conf.gH/2
     cam.x=clamp(cam.x,0,(map.width*map.tilewidth)-conf.gW)
     cam.y=clamp(cam.y,0,(map.height*map.tileheight)-conf.gH)
-    shader.stripe:send("time",love.timer.getTime())
+
+    if input:pressed("action") then
+        talkies.onAction()
+    elseif input:pressed("up") then
+        talkies.prevOption()
+    elseif input:pressed("down") then
+        talkies.nextOption()
+    end
 end 
 
 
@@ -64,6 +80,15 @@ function love.draw()
         lg.setColor(1,1,1,1)
         lg.translate(0,0)
         lg.pop()
-        lg.print("Hello world!",0,-4)
+        talkies.draw()
     endDraw()
+end
+
+function love.keypressed(k)
+    if k=="p" then
+        talkies.say("mystical dev","hello world!")
+        talkies.say("mystical dev","this is just a test, I'm working on dialouge things in this game so we can have a story!")
+        talkies.say("mystical dev","shoutout to the talkies library, now i don't need to make my own dialog system...")
+        talkies.say("mystical dev","hey, whats your favorite ice cream flavor by the way?",{options={{"chocolate",function() talkies.say("mystical dev","ew gross") end},{"vanilla",function() talkies.say("mystical dev","based") end}}})
+    end
 end
