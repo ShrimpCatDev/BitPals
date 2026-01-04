@@ -10,7 +10,7 @@ return {
   tilewidth = 12,
   tileheight = 12,
   nextlayerid = 19,
-  nextobjectid = 6,
+  nextobjectid = 7,
   properties = {},
   tilesets = {
     {
@@ -1140,7 +1140,7 @@ return {
       objects = {
         {
           id = 1,
-          name = "",
+          name = "entrance0",
           type = "",
           shape = "rectangle",
           x = 232.188,
@@ -1150,6 +1150,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["door"] = "house1",
             ["kind"] = "room",
             ["room"] = "testRoom"
           }
@@ -1186,6 +1187,21 @@ return {
             ["kind"] = "msg",
             ["msg"] = "Hello this is my game i added a nerd and me and a door thats all qwq",
             ["title"] = "Dev possesing this thing"
+          }
+        },
+        {
+          id = 6,
+          name = "",
+          type = "",
+          shape = "point",
+          x = 323.5,
+          y = 188.25,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["playerSpawn"] = true
           }
         }
       }

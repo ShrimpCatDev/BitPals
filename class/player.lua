@@ -45,8 +45,11 @@ function pl:update(dt)
     self.vx=x*self.spd*dt
     self.vy=y*self.spd*dt
 
+    
     local ax,ay,col,len=world:move(self,self.x+self.vx,self.y+self.vy)
     self.x,self.y=ax,ay
+    self.x=clamp(self.x,0,(map.width*map.tilewidth)-self.w)
+    self.y=clamp(self.y,0,(map.height*map.tileheight)-self.h)
 
     local m=false
     if input:down("up") then

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="12" tileheight="12" infinite="0" nextlayerid="19" nextobjectid="6">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="12" tileheight="12" infinite="0" nextlayerid="19" nextobjectid="7">
  <editorsettings>
   <export target="test.lua" format="lua"/>
  </editorsettings>
@@ -772,8 +772,9 @@
   </layer>
  </group>
  <objectgroup id="16" name="collision">
-  <object id="1" x="232.188" y="168" width="3.625" height="3.4375">
+  <object id="1" name="entrance0" x="232.188" y="168" width="3.625" height="3.4375">
    <properties>
+    <property name="door" value="house1"/>
     <property name="kind" value="room"/>
     <property name="room" value="testRoom"/>
    </properties>
@@ -791,6 +792,12 @@
     <property name="msg" value="Hello this is my game i added a nerd and me and a door thats all qwq"/>
     <property name="title" value="Dev possesing this thing"/>
    </properties>
+  </object>
+  <object id="6" x="323.5" y="188.25">
+   <properties>
+    <property name="playerSpawn" type="bool" value="true"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
  <layer id="18" name="npc" width="40" height="30" offsetx="0" offsety="-2">
